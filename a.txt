@@ -1,1 +1,0 @@
-<pyfiglet.Figlet object at 0x7f6527f37510>
