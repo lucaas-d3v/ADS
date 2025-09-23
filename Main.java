@@ -1,12 +1,12 @@
 import controller.JogadorController;
-import models.Jogador;
+
 import java.util.Scanner;
+import models.Patente;
 
 public class Main {
-    Jogador jogador = new Jogador();
-    JogadorController jogadorcontroller = new JogadorController();
+    JogadorController jogador = new JogadorController();
 
-    public void menu() {
+    public void menu(Patente patente) {
             String logo = """
             ███╗   ██╗ █████╗ ███████╗███████╗ █████╗ ██╗   ██╗
             ████╗  ██║██╔══██╗██╔════╝██╔════╝██╔══██╗██║   ██║
@@ -25,24 +25,35 @@ public class Main {
     
             System.out.println(logo);
     
-            System.out.println("Dados: \n" + "    Patente: \n       " + this.jogador.patente + "\n" + "    Pontos: \n       " + this.jogador.getPontosAtuais() + "\n");
-
-            System.out.print("\nInforme o status da rodada" + this.jogadorcontroller.rodada_atual + ", (V – Vitória, E – Empate, D - Derrota): ");
-    
+            System.out.println("Dados: \n" + "    Patente: \n       " + patente + "\n" + "    Pontos: \n       " + this.jogador.getPontosAtuais() + "\n");
         }
 
     public void main(String[] args){
         Scanner leitor = new Scanner(System.in);
         String status;
         
+        menu(this.jogador.getPatente());
+
         while (true) {
-            menu();
+            System.out.print("Informe o status da rodada " + this.jogador.getRodadaAtual() + ", (V – Vitória, E – Empate, D - Derrota): ");
+
+            if (this.jogador.getRodadaAtual() == 10){    
+                menu(this.jogador.getPatente());
+                this.jogador.decidirCaminhoPatente();
+
+            }
+
+            try{
+                status = leitor.nextLine();
+                this.jogador.decidirPontuacao(status);
+
+                if (status.equals("q")){
+                    break;
+                }
+            } catch (Exception e) {
+                System.out.println("Opção inválida!");
             
-            status = leitor.nextLine();
-            this.jogador = jogadorcontroller.decidirPontuacao(jogador, status);
-            
-            if (status.equals("q")){
-                break;
+                continue;
             }
 
         } 
