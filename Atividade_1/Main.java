@@ -1,8 +1,9 @@
-import controller.JogadorController;
-import utils.Confimador;
+package Atividade_1;
 
 import java.util.Scanner;
 
+import Atividade_1.controller.JogadorController;
+import Atividade_1.utils.Confimador;
 
 public class Main {
     JogadorController jogador = new JogadorController();

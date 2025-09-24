@@ -1,6 +1,6 @@
-package controller;
-import models.Jogador;
-import models.Patente;
+package Atividade_1.controller;
+import Atividade_1.models.Jogador;
+import Atividade_1.models.Patente;
 import java.util.ArrayList;
 
 public class JogadorController {

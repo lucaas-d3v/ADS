@@ -1,3 +1,4 @@
+package Atividade_1.utils;
 /**
  * Pensei em um sistema de busca diferente de liner/binária,
  * na mesma pegada que o 'WHERE' do sql, invés do olhar elemento por elemento
@@ -10,7 +11,7 @@
  * é necessário normalizar a entrada do usuário antes.
  * OBS: eu criei o sistema, mas mandei a IA adicionar o maximo de variações.
  */
-package utils;
+
 
 import static java.util.Map.entry;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package models;
+package Atividade_1.models;
 
 public enum Patente {
     FERRO(0),
