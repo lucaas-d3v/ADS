@@ -6,7 +6,7 @@ import models.Patente;
 public class Main {
     JogadorController jogador = new JogadorController();
 
-    public void menu(Patente patente) {
+    public void menu() {
             String logo = """
             ███╗   ██╗ █████╗ ███████╗███████╗ █████╗ ██╗   ██╗
             ████╗  ██║██╔══██╗██╔════╝██╔════╝██╔══██╗██║   ██║
@@ -24,21 +24,22 @@ public class Main {
             """;
     
             System.out.println(logo);
-    
-            System.out.println("Dados: \n" + "    Patente: \n       " + patente + "\n" + "    Pontos: \n       " + this.jogador.getPontosAtuais() + "\n");
+            System.out.println("Patente: " + this.jogador.getPatente());
+            System.out.println("Pontos: " + this.jogador.getPontosAtuais());
+        
         }
 
     public void main(String[] args){
         Scanner leitor = new Scanner(System.in);
         String status;
         
-        menu(this.jogador.getPatente());
+        menu();
 
         while (true) {
             System.out.print("Informe o status da rodada " + this.jogador.getRodadaAtual() + ", (V – Vitória, E – Empate, D - Derrota): ");
 
             if (this.jogador.getRodadaAtual() == 10){    
-                menu(this.jogador.getPatente());
+                menu();
                 this.jogador.decidirCaminhoPatente();
 
             }
