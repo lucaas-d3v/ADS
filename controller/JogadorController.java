@@ -28,7 +28,7 @@ public class JogadorController {
     }
    
     public void decidirCaminhoPatente(){
-     ArrayList<Integer> ultimos_pontos = this.jogador.getUltimosPontos();
+        ArrayList<Integer> ultimos_pontos = this.jogador.getUltimosPontos();
     
         if (this.jogador.patente.podeSubir() && sum(ultimos_pontos) >= 60){
             this.jogador.patente = this.jogador.patente.subirPatente();

@@ -1,10 +1,12 @@
 import controller.JogadorController;
+import utils.Confimador;
 
 import java.util.Scanner;
-import models.Patente;
+
 
 public class Main {
     JogadorController jogador = new JogadorController();
+    Confimador confirmador = new Confimador();
 
     public void menu() {
             String logo = """
@@ -36,21 +38,29 @@ public class Main {
         menu();
 
         while (true) {
-            System.out.print("Informe o status da rodada " + this.jogador.getRodadaAtual() + ", (V – Vitória, E – Empate, D - Derrota): ");
-
+            
             if (this.jogador.getRodadaAtual() == 10){    
-                menu();
                 this.jogador.decidirCaminhoPatente();
+                menu();
+                
+                System.out.print("Deseja continuar? (s/n):");
+                String continuar = leitor.nextLine();
+
+                if (!confirmador.foiConfirmado(continuar)){
+                    break;
+                }
 
             }
-
+            
             try{
+                System.out.print("Informe o status da rodada " + this.jogador.getRodadaAtual() + ", (V – Vitória, E – Empate, D - Derrota, Q - Sair ): ");
                 status = leitor.nextLine();
                 this.jogador.decidirPontuacao(status);
 
                 if (status.equals("q")){
                     break;
                 }
+
             } catch (Exception e) {
                 System.out.println("Opção inválida!");
             

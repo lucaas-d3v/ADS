@@ -19,8 +19,13 @@ public enum Patente {
     // Retorna a próxima patente (se possível)
     public Patente subirPatente() {
         Patente[] patentes = Patente.values();
+        System.out.print("Você subiu de " + this);
+        
         if (this.ordinal() < patentes.length - 1) {
-            return patentes[this.ordinal() + 1];
+            Patente proxima = patentes[this.ordinal() + 1];
+
+            System.out.println(" para " + proxima);
+            return proxima;
         }
         return this; // Se já está no máximo, retorna a mesma
     }
@@ -28,8 +33,13 @@ public enum Patente {
     // Retorna a patente anterior (se possível)
     public Patente descerPatente() {
         Patente[] patentes = Patente.values();
+        System.out.print("Você subiu de " + this);
+
         if (this.ordinal() > 0) {
-            return patentes[this.ordinal() - 1];
+            Patente anterior = patentes[this.ordinal() - 1];
+            System.out.println(" para " + anterior);
+
+            return anterior;
         }
         return this; // Se já está no mínimo, retorna a mesma
     }
